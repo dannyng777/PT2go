@@ -30,7 +30,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "npm run run-be | npm run run-fe",
+    "start": "npm run run-be | npm build",
     "run-fe":"react-scripts start",
     "run-be":"nodemon ./server/index.js",
     "build": "react-scripts build",
