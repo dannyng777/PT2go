@@ -12,7 +12,7 @@ app.use(express.json()) //changing everything from body to JSON.
 
 mongoose.connect('mongodb+srv://danny-admin:Nguyeners@cluster0.blclp5t.mongodb.net/?retryWrites=true&w=majority')
 
-// app.use(express.static(path.resolve(__dirname, '../build')));
+app.use(express.static(path.resolve(__dirname, '../build')));
 
 app.post('/api/register',async (req,res) => {
     const { firstname, lastname, email, password, occupation } = req.body
@@ -78,14 +78,14 @@ app.post('/api/deleteExercise',async(req,res)=>{
     await User.updateOne({email},{$pull:{"exercises":null}})
 })
 
-// app.get('/*', function(req,res){
-//     res.sendFile(path.join(__dirname, '../build','index.html'))
-// })
+app.get('/*', function(req,res){
+    res.sendFile(path.join(__dirname, '../build','index.html'))
+})
 
-// const {PORT} = process.env;
+const {PORT} = process.env;
 
 // const {PORT} = 1337
 
-app.listen(1337, ()=>{
-    console.log(`Server is listening on 1337`)
+app.listen(PORT, ()=>{
+    console.log(`Server is listening on ${PORT}`)
 })
